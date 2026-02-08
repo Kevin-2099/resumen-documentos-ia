@@ -1,12 +1,18 @@
-# 📚 Resumen Inteligente de Documentos con IA (resumen-ia-demo)
-Este es un proyecto educativo tipo Micro SaaS que permite subir documentos PDF y obtener un resumen automático generado con inteligencia artificial, usando el modelo BART de Facebook (facebook/bart-large-cnn).
+# 📚 Resumidor de Documentos con IA
+Este es un proyecto tipo Micro SaaS que permite subir documentos PDF o pegar texto para obtener un resumen automático generado con inteligencia artificial.
+
+Utiliza modelos de Hugging Face Transformers, optimizados para distintos tipos de entrada
 
 ## 👨‍💻 Tecnologías usadas
 - Python 3.9+
 
 - Transformers (Hugging Face)
 
-- Torch
+  - facebook/bart-large-cnn
+  
+  - sshleifer/distilbart-cnn-12-6
+
+- PyTorch
 
 - Gradio
 
@@ -22,7 +28,7 @@ Este es un proyecto educativo tipo Micro SaaS que permite subir documentos PDF y
 
 git clone https://github.com/Kevin-2099/resumen-documentos-ia.git
 
-cd resumen-ia-demo
+cd resumen-documentos-ia
 
 2.Instala las dependencias:
 
@@ -30,7 +36,7 @@ pip install -r requirements.txt
 
 -Si no tienes requirements.txt, puedes usar:
 
-pip install transformers pdfplumber gradio
+pip install transformers torch gradio pdfplumber langdetect
 
 3.Ejecuta la aplicación:
 
@@ -38,19 +44,19 @@ python app.py
 
 
 ## 📌 Características
-✅ Subida de archivos PDF
+✅ Subida de archivos PDF o entrada de texto directo
 
-✅ Extracción automática de texto (hasta 10 páginas)
+✅ Extracción automática de texto (hasta 10 páginas por PDF)
 
-✅ Generación de resumen con modelo BART (Hugging Face Transformers)
+✅ Generación de resúmenes con modelos BART (Hugging Face Transformers)
 
-✅ Interfaz amigable con Gradio
+✅ Interfaz web amigable con Gradio
 
 ✅ Detección automática de idioma (español / inglés) 🌐
 
 ✅ Barra de progreso durante el procesamiento ⏳
 
-✅ Estadísticas automáticas: páginas procesadas, palabras originales y del resumen 📊
+✅ Estadísticas automáticas: fragmentos/páginas procesadas, palabras originales y del resumen 📊
 
 ✅ Registro interno (CSV) de resúmenes generados
 
@@ -58,17 +64,19 @@ python app.py
 
 - 🟢 Breve — resumen corto y directo
 
-- 🟡 Medio — balance entre claridad y contexto
+- 🟡 Medio — equilibrio entre claridad y contexto
 
-- 🔵 Largo — resumen detallado con matices
+- 🔵 Largo — resumen detallado con más matices
 
-✅ Tres formatos de salida:
+✅ Múltiples formatos de salida:
 
 - 📝 Markdown
 
+- 📓 Markdown Avanzado (Notion / Obsidian)
+
 - 😃 Emojis
 
-- 🔹 Bullets
+- 🔹 Bullets estructurados (Pros / Contras / Recomendaciones / Conclusión)
 
 ✅ Fácil de ejecutar localmente o en la nube (Hugging Face Spaces)
 
